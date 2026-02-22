@@ -32,7 +32,7 @@ def play():
 play()
 
 
-def Image( filename ):
+def Image( filename="dummy.png" ):
   # Update the background and text
   global imgfile # stop the image file data going out of scope!
   imgfile = Im.open( filename )
@@ -84,6 +84,18 @@ def start( func ):
   global start_
   start_ = func
   return func
+
+
+import traceback
+from tkinter import messagebox
+
+# You would normally put that on the App class
+def show_error(*args):
+  err = traceback.format_exception_only(*args[:2])
+  messagebox.showerror('Exception',err)
+
+root.report_callback_exception = show_error
+
 
 def run(): 
   if start_: start_()
