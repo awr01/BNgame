@@ -1,5 +1,0 @@
-import glob, os
-
-for i,file in enumerate( glob.glob( "*png" ) ):
-  # print( file , "->" , f"{i}.png" )
-  os.rename( file , f"{i}.png" )  
