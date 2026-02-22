@@ -288,6 +288,7 @@ and go to the lighted room?""" )
           
 # ===================================================================================================================
 
+@start
 def MainHall():
   Image( 'imgs/1001.png' ) 
   Text("""When you get to the ornate translucent
@@ -325,5 +326,4 @@ lighted room.""")
 # Image( 'imgs/1.png' )
 # EntranceHall_fightlr( "left" )
 
-#@start
 run()
