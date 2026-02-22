@@ -41,7 +41,7 @@ def Fight( skill , stamina ):
 
 
 # ===================================================================================================================
-#@start
+
 def Intro():
   Image( 'imgs/3.png' ) 
   Text( 
@@ -273,7 +273,7 @@ lock. A shard of metal flies off and stabs
 you in the shoulder.Lose 4HP. But the final 
 blow breaks open the lock. You flip back the 
 lid to reaveal a skelatal hand you drop the 
-chest to in horror.Y ou peer down and see
+chest to in horror.You peer down and see
 there is a ring. You pull off the ring and 
 examine it closely.It has runes over it.
 Do you put on the ring or do you leave it 
@@ -287,11 +287,22 @@ and go to the lighted room?""" )
           
           
 # ===================================================================================================================
-@start
+
 def MainHall():
   Image( 'imgs/1001.png' ) 
   Text("""When you get to the ornate translucent
-door you hesitate before shov""")  
+door you hesitate before shoving the door open.
+You step through and see 6 suits of armour 
+a roaring fire even though there is no one 
+around an unearthly howling wind there is moss
+ on the stairs but strangly nowhere else 
+ and on top of the staircases there are two doors
+ bot although there are 2 glass windows next too 
+ them they are as dark as ink and there are tapestries
+ adorning the walls.As you walk across the room you 
+ find a trap door!Upon opening it you find steps 
+leading deep down.Do you go upstairs or do you go
+down into the gloom? """)  
   Buttons()
   
 # ===================================================================================================================
@@ -314,5 +325,5 @@ lighted room.""")
 # Image( 'imgs/1.png' )
 # EntranceHall_fightlr( "left" )
 
-# Intro()
+#@start
 run()

@@ -24,11 +24,10 @@ buttons = []
 
 health = canvas.create_text( 40 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
 
-audio=None
 def play():
-  global audio
-  if audio is None or not audio.is_alive(): audio = playsound( 'audio.mp3' , block=False )
-  root.after( 5000 , play )
+  playsound( 'audio.mp3' , block=False )
+  root.after( (60*60*1000)+2 , play ) # File is 1hour and 1s long, so after 1 hour and 2s, come back and play it again...
+  
 play()
 
 
