@@ -22,7 +22,9 @@ scroll = scroll.resize((400,150), Im.LANCZOS)
 scroll = PhotoImage( scroll )
 buttons = []
 
-health = canvas.create_text( 40 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
+health = canvas.create_text( 70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
+gold  = canvas.create_text( w-70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
+
 
 def play():
   playsound( 'audio.mp3' , block=False )
@@ -105,3 +107,7 @@ def run():
 
 def Health( HP ):
   canvas.itemconfigure( health , text = f"{HP}HP" )  
+
+
+def Gold( coins ):
+  canvas.itemconfigure( gold , text = f"{coins} coins" )
