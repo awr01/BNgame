@@ -1,7 +1,7 @@
-if __name__ != "__main__": exit()
 from infra import * #Image , Text , Buttons , run , temp
 from random import random
 
+from Bella import Landing
 
 HP = 100
 Equipment = list()
@@ -288,7 +288,7 @@ and go to the lighted room?""" )
           
 # ===================================================================================================================
 
-@start
+
 def MainHall():
   Image( 'imgs/1001.png' ) 
   Text("""When you get to the ornate translucent
@@ -304,8 +304,8 @@ around an unearthly howling wind there is moss
  find a trap door!Upon opening it you find steps 
 leading deep down.Do you go upstairs or do you go
 down into the gloom? """)  
-  Buttons()
-  
+  Buttons(("Creep downstairs",Dungeon_Entrance),
+          ("Go upstairs",Landing))    
 # ===================================================================================================================
       
 def CorridorA_WearRing():
@@ -320,10 +320,18 @@ lighted room.""")
   global HP
   HP = HP + 5
   Health( HP )
-  
-  
+
+@start
+def Dungeon_Entrance():
+  Image( 'imgs/8.jpg' ) 
+  Text("""You decide to descend the stairs into what
+  is now clear to be the dungeons.The stairs""" )
+
+
+# @temp
+# def Landing():  pass  
   
 # Image( 'imgs/1.png' )
 # EntranceHall_fightlr( "left" )
 
-run()
+if __name__ == "__main__": run()

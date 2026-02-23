@@ -81,6 +81,7 @@ def temp( func ):
 start_ = None
 def start( func ):
   global start_
+  # if start_ is None: 
   start_ = func
   return func
 

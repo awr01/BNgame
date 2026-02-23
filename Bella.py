@@ -1,4 +1,4 @@
-if __name__ != "__main__": exit()
+
 from infra import * #Image , Text , Buttons , run , temp
 from random import random
 
@@ -131,4 +131,5 @@ def MainHall():
 # ===================================================================================================================
 
 
-run()
+
+if __name__ == "__main__": run()
