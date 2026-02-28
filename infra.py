@@ -28,10 +28,12 @@ gold  = canvas.create_text( w-70 , 20 , font=("Ariel", 20, "italic") , fill="whi
 
 def play():
   playsound( 'audio.mp3' , block=False )
-  root.after( (60*60*1000)+2 , play ) # File is 1hour and 1s long, so after 1 hour and 2s, come back and play it again...
-  
+  root.after( (60*60*1000)+2 , play ) # File is 1hour and 1s long, so after 1 hour and 2s, come back and play it again...  
 play()
 
+
+def Audio( filename ):
+  playsound( filename , block=False )
 
 def Image( filename="dummy.png" ):
   # Update the background and text
