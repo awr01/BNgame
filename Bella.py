@@ -9,8 +9,8 @@ Equipment = list()
 
 
 
-Gold( coins )
-Health( HP )
+# Gold( coins )
+# Health( HP )
 
 
 # ===================================================================================================================
@@ -126,7 +126,7 @@ of this place and are not sure what to do.""")
   Gold( coins )
 
 
-@start
+#@start
 def Landing_Rm5(): 
   Image('imgs/64.jpg')
   Text("""You enter the room gasping in amazement. You have entered the library.
@@ -146,7 +146,7 @@ def Landing_Rm5_TakeBk():
   Equipment.append( "Spell book" )
 
 
-@start
+#@start
 def Landing_Rm5_Next(): 
   Image('imgs/117.jpg')
 

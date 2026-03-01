@@ -5,8 +5,7 @@ from Bella import Landing
 
 HP = 100
 Equipment = list()
-
-Health( HP )
+# Health( HP )
 
 
 # ===================================================================================================================
@@ -41,7 +40,7 @@ def Fight( skill , stamina ):
 
 
 # ===================================================================================================================
-
+@start
 def Intro():
   Image( 'imgs/3.png' ) 
   Text( 
@@ -321,7 +320,7 @@ lighted room.""")
   HP = HP + 5
   Health( HP )
 
-@start
+#@start
 def Dungeon_Entrance():
   Image( 'imgs/8.jpg' ) 
   Text("""You decide to descend the stairs into what

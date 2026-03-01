@@ -1,5 +1,8 @@
 if __name__ == "__main__": exit()
 
+from os import path 
+dir = path.abspath(path.dirname(__file__)) 
+
 from playsound3 import playsound
 from tkinter import Tk , Canvas , CENTER
 from PIL import Image as Im
@@ -17,17 +20,14 @@ img = canvas.create_image( w/2 , h/2 )
 rect = canvas.create_image(  w/2 , h/2 )
 txt = canvas.create_text( w/2 , h/2 , font=("Ariel", 36, "italic") , fill="white" , justify=CENTER )
 
-scroll = Im.open( "img2/scroll2.png" )
+scroll = Im.open( path.join( dir , "img2/scroll2.png" ) )
 scroll = scroll.resize((400,150), Im.LANCZOS)
 scroll = PhotoImage( scroll )
 buttons = []
 
-health = canvas.create_text( 70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
-gold  = canvas.create_text( w-70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
-
 
 def play():
-  playsound( 'audio.mp3' , block=False )
+  playsound( path.join( dir , 'audio.mp3' ) , block=False )
   root.after( (60*60*1000)+2 , play ) # File is 1hour and 1s long, so after 1 hour and 2s, come back and play it again...  
 play()
 
@@ -38,7 +38,7 @@ def Audio( filename ):
 def Image( filename="dummy.png" ):
   # Update the background and text
   global imgfile # stop the image file data going out of scope!
-  imgfile = Im.open( filename )
+  imgfile = Im.open( path.join( dir , filename ) )
   x,y = imgfile.size
   scale = min( w/x , h/y )
   imgfile = imgfile.resize( (int(scale*x),int(scale*y)), Im.LANCZOS )
@@ -102,10 +102,18 @@ root.report_callback_exception = show_error
 
 
 def run(): 
-  if start_: start_()
+  Image( path.join( dir , "img2/Splash.jpg" ) )
+  canvas.tag_bind( img , "<Button-1>", lambda x: run2() )
   root.mainloop()
 
-
+health , gold = None , None
+def run2(): 
+  canvas.tag_unbind( img , "<Button-1>" )  
+  global health , gold
+  health = canvas.create_text( 70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
+  gold  = canvas.create_text( w-70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
+  if start_: start_()
+  
 
 def Health( HP ):
   canvas.itemconfigure( health , text = f"{HP}HP" )  
