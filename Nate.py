@@ -3,9 +3,31 @@ from random import random
 
 from Bella import Landing
 
-HP = 100
-Equipment = list()
-# Health( HP )
+# coins = 18
+# HP = 100
+# Equipment = list()
+
+
+
+
+
+class player:
+
+  def __init__( self ):
+    self.coins = 18
+    self.HP = 100
+    self.Equipment = list()
+
+
+
+
+plr = player()
+
+
+
+Health( plr.HP )
+
+
 
 
 # ===================================================================================================================
@@ -40,7 +62,7 @@ def Fight( skill , stamina ):
 
 
 # ===================================================================================================================
-@start
+#@start
 def Intro():
   Image( 'imgs/3.png' ) 
   Text( 
@@ -120,9 +142,9 @@ Lose 5HP. Do you fight, or do you drop
 the sword and run away?""" )
   Buttons( ( "Fight" , EntranceHall_fight ) , 
            ( "Drop it and run away" , EntranceHall_RunAway ) )
-  global HP
-  HP = HP - 5
-  Health( HP )
+  
+  plr.HP = plr.HP - 5
+  Health( plr.HP )
 
 def EntranceHall_fight():
   Text( """As you try to raise the sword 
@@ -159,7 +181,7 @@ stars, pick up the rare sword and make your
 way to the doorway.""" ) 
 
   Buttons( ( "Next" , CorridorA ) )
-  Equipment.append( "Rare sword" )
+  plr.Equipment.append( "Rare sword" )
 
 def EntranceHall_RunAway():
   
@@ -183,9 +205,8 @@ far end of the room,one of the suits grabs
 a spear and hurls it towards your throat.
 {msg}""" )
 
-  global HP
-  HP = HP - rndm
-  Health( HP )
+  plr.HP = plr.HP - rndm
+  Health( plr.HP )
 
   Buttons( ( "Next" , CorridorA ) )
   
@@ -258,9 +279,9 @@ def CorridorA_ExploreHole2():
   room""" )
   Buttons ( ( "Open the chest" , CorridorA_OpenChest ),
             ( "Go straight to the room" , MainHall ) )
-  global HP
-  HP = HP - 3
-  Health( HP )
+  
+  plr.HP = plr.HP - 3
+  Health( plr.HP )
   
   
          
@@ -280,9 +301,9 @@ and go to the lighted room?""" )
 # ===================================================================================================================
   Buttons(("Put on the ring",CorridorA_WearRing),
           ("Go to room",MainHall))
-  global HP
-  HP = HP - 4 
-  Health( HP )  
+  
+  plr.HP = plr.HP - 4 
+  Health( plr.HP )  
           
           
 # ===================================================================================================================
@@ -294,10 +315,10 @@ def MainHall():
 door you hesitate before shoving the door open.
 You step through and see 6 suits of armour 
 a roaring fire even though there is no one 
-around an unearthly howling wind there is moss
+around ,an unearthly howling wind there is moss
  on the stairs but strangly nowhere else 
  and on top of the staircases there are two doors
- bot although there are 2 glass windows next too 
+ but although there are 2 glass windows next too 
  them they are as dark as ink and there are tapestries
  adorning the walls.As you walk across the room you 
  find a trap door!Upon opening it you find steps 
@@ -316,15 +337,99 @@ lighted room.""")
 
   Buttons(("Go to the room",MainHall))
   
-  global HP
-  HP = HP + 5
-  Health( HP )
+  
+  plr.HP = plr.HP + 5
+  Health( plr.HP )
 
-#@start
+@start
 def Dungeon_Entrance():
   Image( 'imgs/8.jpg' ) 
-  Text("""You decide to descend the stairs into what
-  is now clear to be the dungeons.The stairs""" )
+  Text("""You decide to descend the stairs and are on a
+  walkway looking down into what is now clear to be the 
+  dungeons. More stairs lead down to a giant grey cavernous 
+  room: There is something on a table. Do you want to search  
+  the cavern and see what is on the table, or continue along 
+  the walkway?""" )
+  Buttons( ("Search the cavern",Cavern_1),
+          ( "Continue along the walkway",Walkway_1) )
+
+
+def Cavern_1():
+  Image("imgs/1003.png")
+  Text("""You walk into the cavern and see what is on the
+  table which turns out to be a brestplate orenately 
+  decorated with a cross.Do you put it on or do you continue
+   your search of the cavern?""") 
+  Buttons(("Wear the armour",Cavern1_WearBrestplate     ),
+          ("Continue searching",Cavern1_KeepSearching))       
+
+
+def Cavern1_WearBrestplate():
+  Image("imgs/1003.png")
+  Text("""When you put on the armour a wave of strength 
+    washes ver you.Plus 2HP.If you havent already you 
+    may search the cavern otherwise go back to the 
+    walkway.""") 
+  Buttons(("Go to the walkway",Walkway_1),
+          ("Continue searching",Cavern1_KeepSearching))       
+
+  
+  plr.HP = plr.HP + 2
+  Health( plr.HP )
+
+
+def Cavern1_KeepSearching():  
+  Text("""The cavern is empty apart from a gold 
+    coin in a crack in the floor.There is nothing
+    else to be found.You look in the alcoves but 
+    they are bare. There is a door but it is firmly 
+    locked and your instincts tell you it's probably 
+    too strong and hard to break your way through.""")
+  Buttons( ("Try forcing the door anyway",lambda : Cavern1_BreakDoor( 1 ) ),
+           ("Go to the walkway",Walkway_1))
+
+   
+  plr.coins = plr.coins + 1
+  Gold( plr.coins )
+
+
+def Cavern1_BreakDoor( count ):
+
+  if   count == "1": label = ""
+  elif count == "2": label = "2nd"
+  elif count == "3": label = "3rd"
+  else: label = f"{count}th"
+
+
+  Text("""You throw your full weight against the door
+          with all your strength, and end up with a 
+          thoroughly bruised shoulder to show for it,
+          but the door remains firmly shut. Lose 2 HP.""" ) 
+  Buttons( ("Try forcing the door again", lambda : Cavern1_BreakDoor( count + 1 ) ),
+           ("Go to the walkway",Walkway_1))
+
+  
+  plr.HP = plr.HP - 2
+  Health( plr.HP )
+
+  if plr.HP <= 0 : exit()
+
+
+
+
+@start
+def Walkway_1():  
+  Text("""You go back onto the walkway and start walking down 
+         it. Accidentaly you kick a stone and it falls through
+         a crack in the stone clacking against the floor. It is 
+         not a big sound but is enough to alert anything down 
+         there of your presence. You feel somthing powerfully 
+         urging you to go to  the cavern. Go into the cavern.""")
+  Buttons( ("Go into the cavern",Cavern_2 ) )
+
+
+@temp
+def Cavern_2():  pass  
 
 
 # @temp
