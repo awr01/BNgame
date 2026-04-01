@@ -13,16 +13,120 @@ from Bella import Landing
 
 class player:
 
-  def __init__( self ):
-    self.coins = 18
-    self.HP = 100
-    self.Equipment = list()
+  def __init__( self,
+                name,
+                strength,
+                skill,
+                magic,
+                stamina,
+                speed,
+                armour,
+                luck,
+                weapon = 40,
+                coins = 0,
+                Equipment = list()
+               ):
+    self.name = name
+    self.coins = coins
+    self.Equipment = Equipment
+    self.strength = strength
+    self.skill = skill
+    self.magic = magic
+    self.stamina = stamina
+    self.speed = speed
+    self.armour = armour
+    self.luck = luck
+    self.weapon = weapon
+
+  def __str__( self ):
+    return self.name
+
+
+
+plr = player(
+    name = "Nate the Great",
+    strength = 50,
+    skill = 75,
+    magic = 10,
+    stamina = 100,
+    speed = 50,
+    armour = 20,
+    luck = 80,
+    coins = 18
+  )
+
+
+
+opponent = player(
+    name = "Slugward the Ork",
+    strength = 90,
+    skill = 20,
+    magic = 0,
+    stamina = 100,
+    speed = 20,
+    armour = 60,
+    luck = 40
+  )
 
 
 
 
-plr = player()
+def fight( a , b ):
 
+  print( a , "vs" , b )
+
+  acounterattack = 0
+  bcounterattack = 0
+
+  while True:
+    print()
+
+    aspeed = a.speed + (a.luck * random()) + acounterattack
+    bspeed = b.speed + (b.luck * random()) + bcounterattack
+
+    print( aspeed , "vs" , bspeed )
+    
+    if aspeed > bspeed :
+      print( a , "attacks")
+      attacker , defender = a , b
+      acounterattack , bcounterattack = -25 , +25
+    else:
+      print( b , "attacks")
+      attacker , defender = b , a
+      bcounterattack , acounterattack = -25 , +25
+
+    attack = (( attacker.strength + attacker.skill + attacker.weapon ) / 3) + (attacker.luck * random())
+    defense = (( defender.stamina + defender.armour )/2) + (defender.luck * random())
+
+    print( attack  , defense)
+    hit = attack - defense
+   
+
+    if hit > 0:
+      print( "hit got through" , hit )
+      defender.stamina -= int(hit)
+      if defender.stamina <= 0: 
+        print( defender , "is defeated" )
+        break
+      else:
+        print(defender, "stamina = ", defender.stamina)
+    else:
+      print( "hit got blocked" , hit )
+      attacker.weapon += int(0.25*hit*random())
+
+      if attacker.weapon <= 0:
+        print( attacker , "weapon is destroyed" )
+        break
+      else:
+        print(attacker, "weapon",attacker.weapon)
+
+
+
+
+
+
+fight( plr , opponent )
+exit()
 
 
 Health( plr.HP )
@@ -62,7 +166,7 @@ def Fight( skill , stamina ):
 
 
 # ===================================================================================================================
-#@start
+@start
 def Intro():
   Image( 'imgs/3.png' ) 
   Text( 
@@ -428,8 +532,18 @@ def Walkway_1():
   Buttons( ("Go into the cavern",Cavern_2 ) )
 
 
-@temp
-def Cavern_2():  pass  
+
+def Cavern_2():    
+  Image( "imgs/4a.png")
+  Text("""As you decend the stairs you are met by a horrible 
+    sight.There is a necromancer so skinny he would be that 
+    skinny if he was a skelaton. He held a bone staff which had a 
+    glowing purple crystal on top. Next to a fountain floats 
+    a blue glowing spectre. Behind the necromancer is a pitch black
+     arch. The necromanser waves his staff and the ghost glides 
+     towards you. You have no choise but to fight it.""")
+
+
 
 
 # @temp
