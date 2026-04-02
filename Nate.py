@@ -168,7 +168,7 @@ def Fight( skill , stamina ):
 # ===================================================================================================================
 @start
 def Intro():
-  Image( 'imgs/3.png' ) 
+  Image( 'imgs/3z.jpg' ) 
   Text( 
 """You trudge through the... you want to say 'forest' but it has been a 
 long time since you have seen any living trees. You wonder if you should 
@@ -203,7 +203,7 @@ you put it in your bag and trudge on...
 
 # ===================================================================================================================
 def TheCastle():
-  Image( 'imgs/2.png' ) 
+  Image( 'imgs/2z.jpg' ) 
   Text( 
 """You are standing in front of a creepy grey castle.
 Your knees are knocking but the allure of the 
@@ -217,7 +217,7 @@ but to go forward""" , EntranceHall ) )
 
 # ===================================================================================================================
 def EntranceHall():
-  Image( 'imgs/1.png' )
+  Image( 'imgs/1z.jpg' )
   Text( 
 """You are in a hallway lined
 with suits of armour and weapons. 
@@ -414,7 +414,7 @@ and go to the lighted room?""" )
 
 
 def MainHall():
-  Image( 'imgs/1001.png' ) 
+  Image( 'imgs/1001z.jpg' ) 
   Text("""When you get to the ornate translucent
 door you hesitate before shoving the door open.
 You step through and see 6 suits of armour 
@@ -459,7 +459,7 @@ def Dungeon_Entrance():
 
 
 def Cavern_1():
-  Image("imgs/1003.png")
+  Image("imgs/1003z.jpg")
   Text("""You walk into the cavern and see what is on the
   table which turns out to be a brestplate orenately 
   decorated with a cross.Do you put it on or do you continue
@@ -469,7 +469,7 @@ def Cavern_1():
 
 
 def Cavern1_WearBrestplate():
-  Image("imgs/1003.png")
+  Image("imgs/1003z.jpg")
   Text("""When you put on the armour a wave of strength 
     washes ver you.Plus 2HP.If you havent already you 
     may search the cavern otherwise go back to the 
@@ -534,7 +534,7 @@ def Walkway_1():
 
 
 def Cavern_2():    
-  Image( "imgs/4a.png")
+  Image( "imgs/4az.jpg")
   Text("""As you decend the stairs you are met by a horrible 
     sight.There is a necromancer so skinny he would be that 
     skinny if he was a skelaton. He held a bone staff which had a 
@@ -549,7 +549,7 @@ def Cavern_2():
 # @temp
 # def Landing():  pass  
   
-# Image( 'imgs/1.png' )
+# Image( 'imgs/1z.jpg' )
 # EntranceHall_fightlr( "left" )
 
 if __name__ == "__main__": run()

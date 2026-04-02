@@ -47,7 +47,7 @@ def Fight( skill , stamina ):
 # ===================================================================================================================
 @start
 def Landing():
-  Image( 'imgs/5.png' ) 
+  Image( 'imgs/5z.jpg' ) 
   Text( 
 """You walk slowly along the corridor looking at your surrondings, 
 your feeling of wariness increasing. The silence and stillness of 
@@ -78,7 +78,7 @@ def Landing_Rm3():
   pass
 
 def Landing_2(): 
-  Image( 'imgs/8.png' ) 
+  Image( 'imgs/8z.jpg' ) 
   Text("""You continue walking down the corridor,
  as you draw closer to the darkness
  more of the corridor becomes visable and you see
@@ -96,7 +96,7 @@ def Landing_chr1():
 
 
 def Landing_3(): 
-  Image('imgs/7.png')
+  Image('imgs/7z.jpg')
   Text("""As you continue walking everything gets
 more and more drealike but you stagger on anyway determined
 that you would not let this place whatever it is
