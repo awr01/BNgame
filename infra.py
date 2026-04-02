@@ -4,7 +4,7 @@ from os import path
 dir = path.abspath(path.dirname(__file__)) 
 
 from playsound3 import playsound
-from tkinter import Tk , Canvas , CENTER
+from tkinter import Tk , Canvas , CENTER , RIGHT
 from PIL import Image as Im
 from PIL.ImageTk import PhotoImage
 import sys
