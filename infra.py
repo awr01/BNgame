@@ -100,24 +100,26 @@ def show_error(*args):
 
 root.report_callback_exception = show_error
 
-
+plr = None
 def run(): 
   Image( path.join( dir , "img2/Splash.jpg" ) )
   canvas.tag_bind( img , "<Button-1>", lambda x: run2() )
   root.mainloop()
 
-health , gold = None , None
+# health , gold = None , None
 def run2(): 
   canvas.tag_unbind( img , "<Button-1>" )  
-  global health , gold
-  health = canvas.create_text( 70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
-  gold  = canvas.create_text( w-70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
+  # global health , gold
+  # health = canvas.create_text( 70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
+  # gold  = canvas.create_text( w-70 , 20 , font=("Ariel", 20, "italic") , fill="white" , justify=CENTER )
   if start_: start_()
   
 
 def Health( HP ):
-  canvas.itemconfigure( health , text = f"{HP}HP" )  
+  # canvas.itemconfigure( health , text = f"{HP}HP" )  
+  pass
 
 
 def Gold( coins ):
-  canvas.itemconfigure( gold , text = f"{coins} coins" )
+  # canvas.itemconfigure( gold , text = f"{coins} coins" )
+  pass
